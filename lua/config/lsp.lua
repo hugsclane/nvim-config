@@ -213,6 +213,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP: Disable hover capability from Ruff",
 })
 
+if utils.executable("gopls") then
+  lspconfig.gopls.setup({
+    on_attach = custom_attach,
+    capabilities = capabilities,
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+      gopls = {
+        semanticTokens = true,
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+      },
+    },
+  })
+end
+
 if utils.executable("ltex-ls") then
   lspconfig.ltex.setup {
     on_attach = custom_attach,

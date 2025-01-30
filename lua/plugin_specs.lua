@@ -92,7 +92,11 @@ local plugin_specs = {
     end,
   },
 
-  -- Show match number and index for searching
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },  -- Show match number and index for searching
   {
     "kevinhwang91/nvim-hlslens",
     branch = "main",
@@ -276,7 +280,7 @@ local plugin_specs = {
   { "tpope/vim-commentary", event = "VeryLazy" },
 
   -- Multiple cursor plugin like Sublime Text?
-  -- 'mg979/vim-visual-multi'
+  {'mg979/vim-visual-multi'},
 
   -- Autosave files on certain events
   { "907th/vim-auto-save", event = "InsertEnter" },
