@@ -36,6 +36,10 @@
 </p>
 </div>
 
+# This is a fork of https://github.com/jdhao real nvim repo.
+This has been adjusted for my preferences, 
+all credit the structure is his.
+
 # Introduction
 
 This repo hosts my Nvim configuration for Linux, macOS, and Windows.
