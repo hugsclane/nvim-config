@@ -46,7 +46,6 @@ local plugin_specs = {
       require("config.lsp")
     end,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = function()

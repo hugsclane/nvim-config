@@ -1,3 +1,4 @@
+
 -- This is my personal Nvim configuration supporting Mac, Linux and Windows, with various plugins configured.
 -- This configuration evolves as I learn more about Nvim and become more proficient in using Nvim.
 -- Since it is very long (more than 1000 lines!), you should read it carefully and take only the settings that suit you.
@@ -13,7 +14,7 @@ vim.loader.enable()
 
 local utils = require("utils")
 
-local expected_version = "0.10.3"
+local expected_version = "0.10.4"
 utils.is_compatible_version(expected_version)
 
 local config_dir = vim.fn.stdpath("config")

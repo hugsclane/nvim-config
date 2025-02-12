@@ -233,7 +233,101 @@ if utils.executable("gopls") then
   })
 end
 
+-- astro/html controls needed. 
+
+
+if utils.executable("astro-ls") then
+  lspconfig.astro.setup{
+    on_attach = custom_attach,
+    capabilities = capabilities,
+    init_options = {
+      typescript = {},
+      html = {},
+    },
+  }
+end
+
+if utils.executable("vscode-html-language-server") then
+  lspconfig.html.setup{
+    on_attach = custom_attach,
+    capabilities = capabilities,
+    init_options = {
+      provideFormatter = true,
+      embeddedLanguages = { css = true, javascript = true },
+      configurationSection = { 'html', 'css', 'javascript' },
+    },
+  }
+end
+
+if utils.executable("typescript-language-server") then
+  lspconfig.ts_ls.setup {
+    on_attach = custom_attach,
+    capabilities = capabilities,
+   init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        languages = {"javascript", "typescript", "vue"},
+      },
+    },
+  },
+ settings = {
+  complete_function_calls = true,
+  vtsls = {
+    enableMoveToFileCodeAction = true,
+    autoUseWorkspaceTsdk = true,
+    experimental = {
+      maxInlayHintLength = 30,
+      completion = {
+        enableServerSideFuzzyMatch = true,
+      },
+    },
+  },
+  typescript = {
+    updateImportsOnFileMove = { enabled = "always" },
+    suggest = {
+      completeFunctionCalls = true,
+    },
+    inlayHints = {
+      includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+    },
+  },
+
+  javascript = {
+    inlayHints = {
+      includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayVariableTypeHints = true,
+
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+    },
+  },
+},
+  inlay_hints = {
+        enabled = true,
+      },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
+  }
+end
+
 if utils.executable("ltex-ls") then
+
   lspconfig.ltex.setup {
     on_attach = custom_attach,
     cmd = { "ltex-ls" },
