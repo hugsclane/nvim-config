@@ -36,7 +36,7 @@
 </p>
 </div>
 
-# This is a fork of https://github.com/jdhao real nvim repo.
+# This is a fork of https://github.com/jdhao nvim repo.
 This has been adjusted for my preferences, 
 all credit the structure is his.
 
