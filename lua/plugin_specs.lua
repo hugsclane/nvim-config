@@ -46,6 +46,10 @@ local plugin_specs = {
       require("config.lsp")
     end,
   },
+  -- auto imports for go
+ {
+    "mattn/vim-goimports",
+ },
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = function()

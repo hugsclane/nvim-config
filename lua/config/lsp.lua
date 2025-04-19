@@ -29,7 +29,7 @@ local custom_attach = function(client, bufnr)
   end
 
   map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
-  map("n", "<C-]>", vim.lsp.buf.definition)
+  map("n", "<C-]>", vim.lsp.buf.definition, {desc = "go to definition"})
   map("n", "K", vim.lsp.buf.hover)
   map("n", "<C-k>", vim.lsp.buf.signature_help)
   map("n", "<space>rn", vim.lsp.buf.rename, { desc = "varialbe rename" })
@@ -217,7 +217,7 @@ if utils.executable("gopls") then
   lspconfig.gopls.setup({
     on_attach = custom_attach,
     capabilities = capabilities,
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    filetypes = { "go", "sum" , "mod", "work", "gotmpl" },
     settings = {
       gopls = {
         semanticTokens = true,
@@ -233,7 +233,7 @@ if utils.executable("gopls") then
   })
 end
 
--- astro/html controls needed. 
+-- astro/html controls needed.
 
 
 if utils.executable("astro-ls") then
