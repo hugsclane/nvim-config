@@ -171,7 +171,12 @@ local plugin_specs = {
       require("config.lualine")
     end,
   },
-
+  {
+     "m4xshen/hardtime.nvim",
+   lazy = false,
+   dependencies = { "MunifTanjim/nui.nvim" },
+   opts = {},
+  },
   {
     "akinsho/bufferline.nvim",
     event = { "BufEnter" },
